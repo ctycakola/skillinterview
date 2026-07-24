@@ -1,0 +1,82 @@
+[
+  {
+    "id": "js_01",
+    "category": "javascript",
+    "topic": "Closures & Scope",
+    "difficulty": "Intermediate",
+    "question": "What is a closure in JavaScript and what are its practical use cases?",
+    "answer": "A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In JavaScript, closures are created every time a function is created, at function creation time.",
+    "explanation": "Closures give an inner function access to an outer function's scope even after the outer function has finished executing and returned. This happens because functions retain a reference to their scope chain.",
+    "codeSnippet": "function createCounter() {\n  let count = 0; // Private variable via closure\n  return {\n    increment: function() { count++; return count; },\n    decrement: function() { count--; return count; },\n    getCount: function() { return count; }\n  };\n}\n\nconst counter = createCounter();\nconsole.log(counter.increment()); // 1\nconsole.log(counter.increment()); // 2\nconsole.log(counter.getCount());  // 2",
+    "keyTakeaways": [
+      "Enables private variable encapsulation and data hiding.",
+      "Used extensively in currying, partial application, and memoization.",
+      "Can cause memory leaks if references to large objects are retained unintentionally."
+    ],
+    "tags": ["Closure", "Scope", "Lexical Environment", "Encapsulation"]
+  },
+  {
+    "id": "js_02",
+    "category": "javascript",
+    "topic": "Asynchronous JS",
+    "difficulty": "Advanced",
+    "question": "Explain the JavaScript Event Loop, Microtasks, and Macrotasks execution order.",
+    "answer": "JavaScript is single-threaded. The Event Loop manages execution by coordinating the Call Stack, Microtask Queue (Promises, process.nextTick, queueMicrotask), and Macrotask Queue (setTimeout, setInterval, I/O, UI rendering).",
+    "explanation": "1. Execute all synchronous code on the Call Stack.\n2. When Call Stack is empty, process ALL pending Microtasks in the Microtask Queue until empty.\n3. Render UI updates if needed.\n4. Take ONE Macrotask from the Macrotask queue and run it on the Call Stack.\n5. Repeat cycle.",
+    "codeSnippet": "console.log('1 - Sync');\n\nsetTimeout(() => console.log('2 - Macrotask (setTimeout)'), 0);\n\nPromise.resolve().then(() => console.log('3 - Microtask (Promise)'));\n\nqueueMicrotask(() => console.log('4 - Microtask (queueMicrotask)'));\n\nconsole.log('5 - Sync');\n\n// Output:\n// 1 - Sync\n// 5 - Sync\n// 3 - Microtask (Promise)\n// 4 - Microtask (queueMicrotask)\n// 2 - Macrotask (setTimeout)",
+    "keyTakeaways": [
+      "Microtask queue has higher priority than Macrotask queue.",
+      "Infinite microtask loops (e.g. recursive Promise.resolve()) will block macrotasks and freeze the main thread.",
+      "setTimeout delay of 0 is not instant—it waits for call stack clear + microtasks."
+    ],
+    "tags": ["Event Loop", "Promises", "Async", "Microtasks", "Concurrency"]
+  },
+  {
+    "id": "js_03",
+    "category": "javascript",
+    "topic": "Objects & Prototypes",
+    "difficulty": "Intermediate",
+    "question": "How does Prototypal Inheritance work in JavaScript vs Class-based inheritance?",
+    "answer": "JavaScript does not have traditional class inheritance. Even ES6 `class` syntax is syntactical sugar over JavaScript's prototype-based inheritance mechanism.",
+    "explanation": "Every JavaScript object has an internal hidden property `[[Prototype]]` (accessible via `Object.getPrototypeOf(obj)` or `__proto__`). When accessing a property on an object, JS first checks the object itself, then follows the prototype chain upward until found or reaching `null`.",
+    "codeSnippet": "function Animal(name) {\n  this.name = name;\n}\nAnimal.prototype.speak = function() {\n  return `${this.name} makes a noise.`;\n};\n\nfunction Dog(name, breed) {\n  Animal.call(this, name);\n  this.breed = breed;\n}\n// Set prototype link\nDog.prototype = Object.create(Animal.prototype);\nDog.prototype.constructor = Dog;\n\nconst d = new Dog('Rex', 'German Shepherd');\nconsole.log(d.speak()); // Rex makes a noise.",
+    "keyTakeaways": [
+      "Prototype chain lookups traverse up to Object.prototype and finally null.",
+      "Methods defined on `.prototype` are shared across all instances, saving memory.",
+      "Object.create() creates a new object with a specified prototype."
+    ],
+    "tags": ["Prototypes", "Inheritance", "Object.create", "OOP"]
+  },
+  {
+    "id": "js_04",
+    "category": "javascript",
+    "topic": "Functions & `this`",
+    "difficulty": "Beginner",
+    "question": "How is the value of `this` determined in JavaScript and how do arrow functions differ?",
+    "answer": "The value of `this` depends on how a function is invoked (call-site execution context), whereas arrow functions lexically bind `this` based on where they were defined.",
+    "explanation": "Four binding rules for standard functions:\n1. Default: global object or `undefined` in strict mode.\n2. Implicit: `obj.func()` -> `this` is `obj`.\n3. Explicit: `call()`, `apply()`, `bind()`.\n4. `new` binding: `new Constructor()` -> `this` is newly instantiated object.\n\nArrow functions ignore call/apply/bind for `this` and inherit `this` from surrounding lexical scope.",
+    "codeSnippet": "const obj = {\n  name: 'SkillInterview',\n  regularFunc: function() {\n    console.log(this.name); // 'SkillInterview'\n  },\n  arrowFunc: () => {\n    console.log(this.name); // undefined (or global/window context)\n  }\n};\n\nobj.regularFunc();\nobj.arrowFunc();",
+    "keyTakeaways": [
+      "Arrow functions cannot be used as constructors (no `new`).",
+      "Use `bind()` when passing method callbacks to prevent losing `this` context.",
+      "Arrow functions do not have their own `arguments` object."
+    ],
+    "tags": ["this", "Arrow Functions", "Execution Context", "Binding"]
+  },
+  {
+    "id": "js_05",
+    "category": "javascript",
+    "topic": "Performance & Memory",
+    "difficulty": "Advanced",
+    "question": "What is Debouncing vs Throttling and when would you use each?",
+    "answer": "Both are rate-limiting techniques to control how often a function executes over time.",
+    "explanation": "**Debounce**: Delays function execution until a specified delay period has elapsed since the *last* event trigger. Great for search input autocomplete.\n\n**Throttle**: Guarantees function execution at most once per specified time interval. Great for scroll handlers or window resize events.",
+    "codeSnippet": "// Debounce Implementation\nfunction debounce(func, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => func.apply(this, args), delay);\n  };\n}\n\n// Throttle Implementation\nfunction throttle(func, limit) {\n  let inThrottle;\n  return function(...args) {\n    if (!inThrottle) {\n      func.apply(this, args);\n      inThrottle = true;\n      setTimeout(() => inThrottle = false, limit);\n    }\n  };\n}",
+    "keyTakeaways": [
+      "Debounce resets timer on every new event.",
+      "Throttle runs periodically at a maximum frequency.",
+      "Crucial for optimizing Web Vitals and DOM performance."
+    ],
+    "tags": ["Debounce", "Throttle", "Performance", "Optimization"]
+  }
+]

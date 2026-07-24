@@ -1,0 +1,66 @@
+[
+  {
+    "id": "react_01",
+    "category": "react",
+    "topic": "Core Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is the Virtual DOM in React and how does the Diffing algorithm work?",
+    "answer": "The Virtual DOM (VDOM) is an in-memory lightweight representation of the real DOM tree. React uses it to compute minimal required DOM mutations through a process called Reconciliation.",
+    "explanation": "When state changes:\n1. React generates a new Virtual DOM tree.\n2. Compares (diffs) the new VDOM with the previous VDOM snapshot using a heuristic O(n) algorithm.\n3. Batches DOM updates into a single batch and applies only the changes to the real DOM.",
+    "codeSnippet": "// Keys allow React to efficiently diff dynamic list elements\nfunction CustomList({ items }) {\n  return (\n    <ul>\n      {items.map(item => (\n        <li key={item.id}>{item.text}</li>\n      ))}\n    </ul>\n  );\n}",
+    "keyTakeaways": [
+      "Real DOM updates are expensive; VDOM operations in memory are fast.",
+      "Keys are essential for list items so React can identify added, moved, or deleted items.",
+      "React Fiber architecture enables interruptible rendering."
+    ],
+    "tags": ["Virtual DOM", "Reconciliation", "Diffing Algorithm", "Performance"]
+  },
+  {
+    "id": "react_02",
+    "category": "react",
+    "topic": "Hooks & State",
+    "difficulty": "Advanced",
+    "question": "What are stale closures in React hooks and how do you prevent them?",
+    "answer": "A stale closure occurs when a callback inside a hook (like useEffect, useCallback, or useMemo) captures state or props variables from an earlier render cycle and does not update when those variables change.",
+    "explanation": "Because hooks form closures over component state, omitting dependencies in the dependency array causes the effect or callback to retain references to old variables.",
+    "codeSnippet": "// Stale Closure Example\nfunction Timer() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    const id = setInterval(() => {\n      // BUG: count is always 0 inside this closure!\n      // setCount(count + 1);\n      \n      // FIX: Use functional state update\n      setCount(prev => prev + 1);\n    }, 1000);\n    return () => clearInterval(id);\n  }, []); // Empty dependency array\n}",
+    "keyTakeaways": [
+      "Use functional updates `setCount(prev => prev + 1)` when new state depends on prior state.",
+      "Include all referenced variables in the dependency array.",
+      "Use `useRef` if you need a mutable reference that does not trigger re-renders."
+    ],
+    "tags": ["React Hooks", "useEffect", "Stale Closure", "useState"]
+  },
+  {
+    "id": "react_03",
+    "category": "react",
+    "topic": "Performance Optimization",
+    "difficulty": "Advanced",
+    "question": "When should you use `React.memo`, `useMemo`, and `useCallback`?",
+    "answer": "These optimization APIs prevent unnecessary component re-renders and expensive computations, but should be applied judiciously to avoid premature optimization overhead.",
+    "explanation": "- `React.memo`: Higher-order component that skips re-rendering a component if its props haven't changed.\n- `useMemo`: Caches the result of an expensive calculation between renders.\n- `useCallback`: Caches a function definition between renders so child components receiving it as a prop don't re-render.",
+    "codeSnippet": "const ExpensiveChild = React.memo(function Child({ onClick }) {\n  console.log('Render Child');\n  return <button onClick={onClick}>Click me</button>;\n});\n\nfunction Parent() {\n  const [count, setCount] = useState(0);\n  \n  // Caches function reference to prevent Child re-renders\n  const handleClick = useCallback(() => {\n    console.log('Clicked');\n  }, []);\n\n  return <ExpensiveChild onClick={handleClick} />;\n}",
+    "keyTakeaways": [
+      "Do not wrap every function in useCallback; memoization has memory & execution costs.",
+      "React.memo performs shallow comparison on props by default.",
+      "Measure performance bottlenecks before optimizing."
+    ],
+    "tags": ["useMemo", "useCallback", "React.memo", "Performance"]
+  },
+  {
+    "id": "react_04",
+    "category": "react",
+    "topic": "Component Architecture",
+    "difficulty": "Intermediate",
+    "question": "What is Context API vs Redux / Zustand state management?",
+    "answer": "Context API is designed for low-frequency global data (themes, current user auth, locale), whereas state management libraries like Redux or Zustand are optimized for complex, high-frequency state updates.",
+    "explanation": "Updating a Context value forces ALL consumer components to re-render, even if they only read a subset of the value. Libraries like Zustand allow selective subscription to slices of state.",
+    "codeSnippet": "const ThemeContext = React.createContext('dark');\n\nfunction App() {\n  return (\n    <ThemeContext.Provider value=\"dark-slate\">\n      <Toolbar />\n    </ThemeContext.Provider>\n  );\n}\n\nfunction Toolbar() {\n  const theme = useContext(ThemeContext);\n  return <div className={`theme-${theme}`}>Toolbar</div>;\n}",
+    "keyTakeaways": [
+      "Context is an explicit dependency injection mechanism, not a full state manager.",
+      "Split large contexts into smaller, single-responsibility contexts to reduce re-renders.",
+      "Zustand / Redux Toolkit offer devtools, middleware, and optimized selectors."
+    ],
+    "tags": ["Context API", "State Management", "Redux", "Zustand"]
+  }
+]
