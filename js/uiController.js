@@ -27,13 +27,19 @@ export class UIController {
       viewStats: document.getElementById('view-stats'),
       
       navItems: document.querySelectorAll('.nav-item'),
+      navBookmarkBadge: document.getElementById('nav-bookmark-badge'),
+      
       categoryGrid: document.getElementById('category-grid'),
       questionsList: document.getElementById('questions-list'),
       bookmarksList: document.getElementById('bookmarks-list'),
       
       searchInput: document.getElementById('search-input'),
+      searchClearBtn: document.getElementById('search-clear-btn'),
       chipContainer: document.getElementById('filter-chips'),
       deviceBtns: document.querySelectorAll('.device-btn'),
+      
+      // Header Stats
+      headerMasteredText: document.getElementById('header-mastered-text'),
       
       // Flashcards
       flashcardInner: document.getElementById('flashcard-inner'),
@@ -43,7 +49,7 @@ export class UIController {
       fcAnswerText: document.getElementById('fc-answer-text'),
       fcCodeBox: document.getElementById('fc-code-box'),
       fcCodeContent: document.getElementById('fc-code-content'),
-      fcProgressText: document.getElementById('fc-progress-text'),
+      fcProgressPill: document.getElementById('fc-progress-pill'),
       fcPrevBtn: document.getElementById('fc-prev-btn'),
       fcNextBtn: document.getElementById('fc-next-btn'),
       fcFlipBtn: document.getElementById('fc-flip-btn'),
@@ -54,6 +60,7 @@ export class UIController {
       statStarredCount: document.getElementById('stat-starred-count'),
       statProgressPercent: document.getElementById('stat-progress-percent'),
       statProgressBar: document.getElementById('stat-progress-bar'),
+      statProgressBadge: document.getElementById('stat-progress-badge'),
       statsCategoryBreakdown: document.getElementById('stats-category-breakdown')
     };
   }
@@ -112,14 +119,9 @@ export class UIController {
   }
 
   applyDeviceMode(mode) {
-    // Remove existing device classes
     this.elements.viewport.classList.remove('device-mobile-mode', 'device-tablet-mode', 'device-desktop-mode');
-    
-    // Add active device mode class
-    const className = `device-${mode}-mode`;
-    this.elements.viewport.classList.add(className);
+    this.elements.viewport.classList.add(`device-${mode}-mode`);
 
-    // Update active state on header device buttons
     this.elements.deviceBtns.forEach(btn => {
       if (btn.dataset.mode === mode) {
         btn.classList.add('active');
@@ -157,7 +159,6 @@ export class UIController {
 
     this.elements.categoryGrid.innerHTML = html;
 
-    // Attach click listeners to category cards
     this.elements.categoryGrid.querySelectorAll('.category-card').forEach(card => {
       card.addEventListener('click', () => {
         this.selectedCategory = card.dataset.catId;
@@ -172,7 +173,7 @@ export class UIController {
     const difficulties = ['all', 'beginner', 'intermediate', 'advanced'];
     const html = difficulties.map(diff => `
       <button class="chip-btn ${this.selectedDifficulty === diff ? 'active' : ''}" data-diff="${diff}">
-        ${diff === 'all' ? 'All Levels' : diff.charAt(0).toUpperCase() + diff.slice(1)}
+        ${diff === 'all' ? '🌟 All Levels' : (diff === 'beginner' ? '🟢 Beginner' : diff === 'intermediate' ? '🟡 Intermediate' : '🔴 Advanced')}
       </button>
     `).join('');
 
@@ -199,8 +200,8 @@ export class UIController {
       this.elements.questionsList.innerHTML = `
         <div class="empty-state">
           <div class="empty-icon">🔍</div>
-          <h3>No interview questions found</h3>
-          <p style="font-size: 13px; margin-top: 4px;">Try refining your search keyword or selected filter tags.</p>
+          <h3 style="font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--text-primary);">No interview questions found</h3>
+          <p style="font-size: 13px; margin-top: 6px; color: var(--text-muted);">Try refining your search keyword or selected filter tags.</p>
         </div>
       `;
       return;
@@ -219,8 +220,8 @@ export class UIController {
       this.elements.bookmarksList.innerHTML = `
         <div class="empty-state">
           <div class="empty-icon">⭐</div>
-          <h3>No Bookmarked Questions</h3>
-          <p style="font-size: 13px; margin-top: 4px;">Tap the star icon on any question card while browsing to save it here for quick review.</p>
+          <h3 style="font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--text-primary);">No Saved Questions Yet</h3>
+          <p style="font-size: 13px; margin-top: 6px; color: var(--text-muted);">Tap the star icon (★) on any question card while browsing to bookmark it here for fast interview revision.</p>
         </div>
       `;
       return;
@@ -239,7 +240,12 @@ export class UIController {
     const codeHTML = q.codeSnippet ? `
       <div class="code-box">
         <div class="code-header">
-          <span>CODE EXAMPLE</span>
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span>CODE SNIPPET</span>
           <button class="copy-btn" data-code="${encodeURIComponent(q.codeSnippet)}">
             📋 Copy Code
           </button>
@@ -288,8 +294,8 @@ export class UIController {
               <button class="master-toggle-btn ${isMastered ? 'mastered' : ''}" data-id="${q.id}">
                 ${isMastered ? '✅ Mastered' : '⭕ Mark as Mastered'}
               </button>
-              <span style="font-size: 11px; color: var(--text-muted);">
-                ${(q.tags || []).join(' • ')}
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 600;">
+                🏷️ ${(q.tags || []).join(' • ')}
               </span>
             </div>
           </div>
@@ -300,7 +306,6 @@ export class UIController {
 
   // Card Event Listeners (Accordion, Starring, Mastering, Copying Code)
   attachCardEventListeners(container) {
-    // Accordion Toggle
     container.querySelectorAll('.q-card-header').forEach(header => {
       header.addEventListener('click', (e) => {
         if (e.target.closest('.star-btn')) return;
@@ -309,7 +314,6 @@ export class UIController {
       });
     });
 
-    // Star Toggle Button
     container.querySelectorAll('.star-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -323,7 +327,6 @@ export class UIController {
       });
     });
 
-    // Master Toggle Button
     container.querySelectorAll('.master-toggle-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -335,7 +338,6 @@ export class UIController {
       });
     });
 
-    // Copy Code Snippet
     container.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -388,7 +390,9 @@ export class UIController {
       this.elements.fcCodeBox.style.display = 'none';
     }
 
-    this.elements.fcProgressText.textContent = `Card ${this.currentFlashcardIndex + 1} of ${this.flashcardList.length}`;
+    if (this.elements.fcProgressPill) {
+      this.elements.fcProgressPill.textContent = `Card ${this.currentFlashcardIndex + 1} of ${this.flashcardList.length}`;
+    }
   }
 
   flipFlashcard() {
@@ -400,7 +404,7 @@ export class UIController {
     if (this.currentFlashcardIndex < this.flashcardList.length - 1) {
       this.currentFlashcardIndex++;
     } else {
-      this.currentFlashcardIndex = 0; // Loop back to start
+      this.currentFlashcardIndex = 0;
     }
     this.renderCurrentFlashcard();
   }
@@ -432,6 +436,23 @@ export class UIController {
     this.elements.statStarredCount.textContent = starredCount;
     this.elements.statProgressPercent.textContent = `${percent}%`;
     this.elements.statProgressBar.style.width = `${percent}%`;
+    
+    if (this.elements.statProgressBadge) {
+      this.elements.statProgressBadge.textContent = `${percent}% Complete`;
+    }
+
+    if (this.elements.headerMasteredText) {
+      this.elements.headerMasteredText.textContent = `${masteredCount}/${totalCount}`;
+    }
+
+    if (this.elements.navBookmarkBadge) {
+      if (starredCount > 0) {
+        this.elements.navBookmarkBadge.textContent = starredCount;
+        this.elements.navBookmarkBadge.style.display = 'inline-block';
+      } else {
+        this.elements.navBookmarkBadge.style.display = 'none';
+      }
+    }
 
     // Category Breakdown
     const categories = this.dataLoader.getCategories();
@@ -444,12 +465,12 @@ export class UIController {
       const catPercent = catTotal > 0 ? Math.round((catMastered / catTotal) * 100) : 0;
 
       breakdownHTML += `
-        <div style="margin-bottom: 12px;">
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;">
+        <div style="background: var(--bg-card); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px;">
             <span>${cat.icon} ${cat.title}</span>
-            <span style="color: var(--accent-cyan);">${catMastered}/${catTotal} (${catPercent}%)</span>
+            <span style="color: var(--accent-cyan); font-family: var(--font-code);">${catMastered}/${catTotal} (${catPercent}%)</span>
           </div>
-          <div class="progress-track" style="height: 6px;">
+          <div class="progress-track" style="height: 7px; margin-top: 6px;">
             <div class="progress-fill" style="width: ${catPercent}%; background: ${cat.color};"></div>
           </div>
         </div>
@@ -459,7 +480,6 @@ export class UIController {
     this.elements.statsCategoryBreakdown.innerHTML = breakdownHTML;
   }
 
-  // Helper function for HTML safety
   escapeHTML(str) {
     if (!str) return '';
     return str

@@ -22,17 +22,37 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
 
-    // Wire Search Input with Debounce
+    // Wire Search Input with Debounce & Clear Button
     const searchInput = document.getElementById('search-input');
+    const searchClearBtn = document.getElementById('search-clear-btn');
     let debounceTimer;
 
-    searchInput.addEventListener('input', (e) => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        uiController.searchQuery = e.target.value;
-        uiController.renderQuestions();
-      }, 200);
-    });
+    const updateSearch = (query) => {
+      uiController.searchQuery = query;
+      if (searchClearBtn) {
+        searchClearBtn.style.display = query.length > 0 ? 'block' : 'none';
+      }
+      uiController.renderQuestions();
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          updateSearch(e.target.value);
+        }, 180);
+      });
+    }
+
+    if (searchClearBtn) {
+      searchClearBtn.addEventListener('click', () => {
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+        updateSearch('');
+      });
+    }
 
     // Wire Device Mode Switcher (Mobile, Tablet, Desktop)
     document.querySelectorAll('.device-btn').forEach(btn => {
@@ -42,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
 
-    // Wire Flashcard Controls
+    // Wire Flashcard Stage Controls
     const flashcardInner = document.getElementById('flashcard-inner');
     const fcFlipBtn = document.getElementById('fc-flip-btn');
     const fcPrevBtn = document.getElementById('fc-prev-btn');
@@ -75,7 +95,37 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
 
-    console.log('⚡ SkillInterview Responsive App initialized successfully.');
+    // Keyboard Shortcuts Listener
+    document.addEventListener('keydown', (e) => {
+      // Focus Search Bar: Ctrl+K or Cmd+K
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (searchInput) searchInput.focus();
+      }
+
+      // Escape key clears search
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchInput.blur();
+        updateSearch('');
+      }
+
+      // Flashcards Keyboard Shortcuts (when flashcards view is active)
+      if (uiController.currentView === 'flashcards') {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          uiController.flipFlashcard();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          uiController.prevFlashcard();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          uiController.nextFlashcard();
+        }
+      }
+    });
+
+    console.log('⚡ SkillInterview Cyber Dark Slate App booted successfully.');
   } catch (error) {
     console.error('Failed to boot SkillInterview app:', error);
   }
