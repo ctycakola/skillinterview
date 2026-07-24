@@ -131,7 +131,7 @@ async function initCategories() {
   const input=document.querySelector('#question-search'); input.value=query; const container=document.querySelector('#questions-list'); const map=new Map(base.map(item=>[item.uid,item]));
   const render=()=>{ const items=filterDifficulty(searchQuestions(base,query),difficulty); document.querySelector('#visible-count').textContent=items.length; document.querySelector('#question-state').hidden=true; container.innerHTML=items.length?items.map(renderAccordion).join(''):`<div class="empty-state"><i class="bi bi-search"></i><h2>No matching questions</h2><p>Try another keyword or difficulty level.</p></div>`; };
   wireQuestionCards(container,map); input.addEventListener('input',debounce(event=>{query=event.target.value;render()}));
-  document.querySelector('#difficulty-filters').addEventListener('click',event=>{const button=event.target.closest('.filter-btn');if(!button)return;difficulty=button.dataset.difficulty;document.querySelectorAll('.filter-btn').forEach(item=>item.classList.toggle('active',item===button));render()});
+  const diffFilters=document.querySelector('#difficulty-filters');if(diffFilters)diffFilters.addEventListener('click',event=>{const button=event.target.closest('.filter-btn');if(!button)return;difficulty=button.dataset.difficulty;document.querySelectorAll('.filter-btn').forEach(item=>item.classList.toggle('active',item===button));render()});
   document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();input.focus()}}); render();
 }
 
