@@ -36,7 +36,7 @@ export class UIController {
       searchInput: document.getElementById('search-input'),
       searchClearBtn: document.getElementById('search-clear-btn'),
       chipContainer: document.getElementById('filter-chips'),
-      deviceBtns: document.querySelectorAll('.device-btn'),
+
       
       // Header Stats
       headerMasteredText: document.getElementById('header-mastered-text'),
@@ -70,7 +70,6 @@ export class UIController {
     this.renderFilterChips();
     this.renderQuestions();
     this.updateStats();
-    this.applyDeviceMode(StorageManager.getMode());
   }
 
   // Switch Active View (Browse, Flashcards, Bookmarks, Stats)
@@ -81,8 +80,10 @@ export class UIController {
     this.elements.navItems.forEach(item => {
       if (item.dataset.view === viewName) {
         item.classList.add('active');
+        item.setAttribute('aria-current', 'page');
       } else {
         item.classList.remove('active');
+        item.removeAttribute('aria-current');
       }
     });
 
@@ -112,24 +113,7 @@ export class UIController {
     }
   }
 
-  // Apply Responsive Device Mode (mobile, tablet, desktop)
-  setDeviceMode(mode) {
-    StorageManager.setMode(mode);
-    this.applyDeviceMode(mode);
-  }
 
-  applyDeviceMode(mode) {
-    this.elements.viewport.classList.remove('device-mobile-mode', 'device-tablet-mode', 'device-desktop-mode');
-    this.elements.viewport.classList.add(`device-${mode}-mode`);
-
-    this.elements.deviceBtns.forEach(btn => {
-      if (btn.dataset.mode === mode) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-  }
 
   // Render Category Cards Grid
   renderCategoryGrid() {

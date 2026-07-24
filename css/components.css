@@ -69,8 +69,10 @@
   opacity: 0.8;
 }
 
-#app-viewport.device-mobile-mode .kbd-shortcut-pill {
-  display: none;
+@media (max-width: 767px) {
+  .kbd-shortcut-pill {
+    display: none;
+  }
 }
 
 /* ------------------------------------------
@@ -83,16 +85,22 @@
   margin-bottom: 24px;
 }
 
-#app-viewport.device-mobile-mode .category-grid {
-  grid-template-columns: repeat(2, 1fr);
+@media (max-width: 767px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-#app-viewport.device-tablet-mode .category-grid {
-  grid-template-columns: repeat(3, 1fr);
+@media (min-width: 768px) and (max-width: 1023px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-#app-viewport.device-desktop-mode .category-grid {
-  grid-template-columns: repeat(5, 1fr);
+@media (min-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .category-card {
@@ -622,9 +630,10 @@
   margin-bottom: 28px;
 }
 
-#app-viewport.device-desktop-mode .stats-summary-grid,
-#app-viewport.device-tablet-mode .stats-summary-grid {
-  grid-template-columns: repeat(4, 1fr);
+@media (min-width: 768px) {
+  .stats-summary-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .stat-box {
@@ -746,4 +755,74 @@
   font-size: 52px;
   margin-bottom: 16px;
   opacity: 0.6;
+}
+
+/* Responsive component refinements */
+.search-input {
+  min-height: 52px;
+  padding: 13px 96px 13px 46px;
+  border-radius: 12px;
+  background: var(--bg-input);
+  box-shadow: none;
+}
+
+.search-input:focus { background: var(--bg-input); border-color: var(--accent-cyan); box-shadow: 0 0 0 3px var(--accent-cyan-glow); }
+.search-clear-btn, .star-btn, .copy-btn, .master-toggle-btn, .fc-btn, .chip-btn { min-height: 44px; }
+
+.category-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.category-card { min-height: 116px; padding: 16px; border-radius: 12px; }
+.category-card::before { display: none; }
+.category-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.category-card.active { border-color: var(--accent-cyan); background: var(--accent-cyan-glow); box-shadow: none; }
+.category-icon { width: 42px; height: 42px; margin-bottom: 12px; border-radius: 9px; box-shadow: none; font-size: 22px; }
+.chip-btn { padding: 9px 16px; border-radius: 9px; font-weight: 600; }
+.chip-btn.active, .master-toggle-btn.mastered { box-shadow: none; }
+.q-card, .stat-box, .progress-bar-container { border-radius: 12px; }
+.q-card:hover { box-shadow: var(--shadow-sm); }
+.star-btn { min-width: 44px; }
+.flashcard-face, .flashcard-front, .flashcard-back { border-radius: 16px; background: var(--bg-card); }
+.fc-btn.btn-primary { background: var(--accent-cyan); box-shadow: none; }
+
+.stats-summary-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 2px; }
+
+@media (max-width: 1023px) {
+  .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .search-box-container { margin-bottom: 28px; }
+  .search-input { padding-right: 46px; font-size: 16px; }
+  .kbd-shortcut-pill { display: none; }
+  .search-clear-btn { right: 5px; width: 44px; }
+  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .category-card { min-height: 108px; padding: 14px; }
+  .filter-chips-container { margin-right: -16px; padding-right: 16px; }
+  .q-card-header { padding: 16px; gap: 8px; }
+  .q-card-body { padding: 0 16px 18px; }
+  .q-title { font-size: 15px; }
+  .card-actions-bar { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .master-toggle-btn { width: 100%; justify-content: center; }
+  .flashcard-inner { height: min(440px, 54vh); min-height: 360px; }
+  .flashcard-face { padding: 22px 18px; }
+  .flashcard-controls { gap: 8px; }
+  .fc-btn { padding: 11px 8px; }
+  .keyboard-hints-bar { display: none; }
+  .stats-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .stat-box { padding: 16px; }
+  .stat-val { font-size: 28px; }
+  .window-dots { display: none; }
+}
+
+@media (max-width: 380px) {
+  .category-grid { grid-template-columns: 1fr; }
 }

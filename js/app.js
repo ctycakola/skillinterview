@@ -54,13 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
 
-    // Wire Device Mode Switcher (Mobile, Tablet, Desktop)
-    document.querySelectorAll('.device-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const mode = btn.dataset.mode;
-        uiController.setDeviceMode(mode);
-      });
-    });
+
 
     // Wire Flashcard Stage Controls
     const flashcardInner = document.getElementById('flashcard-inner');
