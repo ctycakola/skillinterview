@@ -1,0 +1,16 @@
+[
+  {"id":"python","name":"Python","file":"python.json","shortDescription":"Syntax, data types and clean Python patterns.","description":"Build strong Python fundamentals and explain common language concepts with confidence."},
+  {"id":"aws","name":"AWS","file":"aws.json","shortDescription":"Cloud services, security and architecture.","description":"Prepare for practical AWS questions covering core services, resilience, and security."},
+  {"id":"rag","name":"RAG","file":"rag.json","shortDescription":"Retrieval pipelines and grounded generation.","description":"Understand retrieval-augmented generation, embeddings, chunking, and evaluation."},
+  {"id":"sql","name":"SQL","file":"sql.json","shortDescription":"Queries, joins, indexes and optimization.","description":"Practice SQL concepts from basic querying to indexing and query performance."},
+  {"id":"ml","name":"Machine Learning","file":"ml.json","shortDescription":"Models, metrics and training workflows.","description":"Review essential machine-learning theory, model evaluation, and production considerations."},
+  {"id":"genai","name":"GenAI","file":"genai.json","shortDescription":"Generative models, safety and evaluation.","description":"Prepare for modern generative-AI interviews with implementation-focused answers."},
+  {"id":"docker","name":"Docker","file":"docker.json","shortDescription":"Images, containers and orchestration basics.","description":"Learn container fundamentals, image design, networking, and reliable deployment practices."},
+  {"id":"linux","name":"Linux","file":"linux.json","shortDescription":"Processes, permissions and troubleshooting.","description":"Practice Linux commands and system concepts used in development and operations interviews."},
+  {"id":"systemdesign","name":"System Design","file":"systemdesign.json","shortDescription":"Scalable, reliable distributed systems.","description":"Structure design answers around requirements, trade-offs, scale, and reliability."},
+  {"id":"datastructures","name":"Data Structures","file":"datastructures.json","shortDescription":"Collections, trees, graphs and complexity.","description":"Strengthen data-structure selection and complexity analysis for coding interviews."},
+  {"id":"algorithms","name":"Algorithms","file":"algorithms.json","shortDescription":"Problem solving and complexity patterns.","description":"Practice algorithmic thinking, common patterns, and complexity explanations."},
+  {"id":"llm","name":"LLM","file":"llm.json","shortDescription":"Transformers, tokens and fine-tuning.","description":"Understand how large language models work and how they are adapted for products."},
+  {"id":"vectordb","name":"Vector Database","file":"vectordb.json","shortDescription":"Similarity search and vector indexing.","description":"Explore vector storage, similarity metrics, metadata filtering, and index trade-offs."},
+  {"id":"promptengineering","name":"Prompt Engineering","file":"promptengineering.json","shortDescription":"Reliable prompts and structured outputs.","description":"Design, test, and improve prompts for reliable production AI experiences."}
+]

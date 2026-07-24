@@ -71,10 +71,10 @@ function renderAccordion(question, index = 0) {
   const bookmarked = progressStore.bookmarks().has(question.uid);
   const completed = progressStore.completed().has(question.uid);
   return `<article class="question-card" data-uid="${question.uid}" style="animation-delay:${Math.min(index,8)*35}ms">
-    <button class="question-summary" type="button" aria-expanded="false">
+    <div class="question-summary">
       <span><span class="question-meta">${difficultyBadge(question.difficulty)}<span class="topic-label"><i class="bi bi-tag"></i> ${escapeHtml(question.topic)}</span><span class="time-label"><i class="bi bi-clock"></i> ${escapeHtml(question.time || '3 min')}</span></span><h2>${escapeHtml(question.question)}</h2></span>
-      <span class="question-actions"><button class="icon-btn bookmark-btn" type="button" aria-label="${bookmarked?'Remove bookmark':'Bookmark question'}"><i class="bi bi-bookmark${bookmarked?'-fill':''}"></i></button><i class="bi bi-chevron-down expand-icon"></i></span>
-    </button>
+      <span class="question-actions"><button class="icon-btn bookmark-btn" type="button" aria-label="${bookmarked?'Remove bookmark':'Bookmark question'}"><i class="bi bi-bookmark${bookmarked?'-fill':''}"></i></button><button class="icon-btn expand-btn" type="button" aria-label="Expand answer" aria-expanded="false"><i class="bi bi-chevron-down expand-icon"></i></button></span>
+    </div>
     <div class="question-body"><div class="question-body-inner"><div class="answer-content">${answerMarkup(question)}
       <div class="question-footer"><button class="btn btn-light completed-btn ${completed?'completed':''}" type="button"><i class="bi bi-${completed?'check-circle-fill':'circle'}"></i> ${completed?'Completed':'Mark completed'}</button><button class="btn btn-light copy-question" type="button"><i class="bi bi-copy"></i> Copy</button><button class="btn btn-light share-question" type="button"><i class="bi bi-share"></i> Share</button></div>
     </div></div></div></article>`;
@@ -97,7 +97,7 @@ function wireQuestionCards(container, questionMap) {
     if (event.target.closest('.copy-question')) { await copyText(`${question.question}\n\n${question.answer}`); return; }
     if (event.target.closest('.share-question')) { await shareQuestion(question); return; }
     if (event.target.closest('.question-summary')) {
-      const open = card.classList.toggle('open'); event.target.closest('.question-summary').setAttribute('aria-expanded', String(open));
+      const open = card.classList.toggle('open'); const button=card.querySelector('.expand-btn'); button.setAttribute('aria-expanded', String(open)); button.setAttribute('aria-label', open?'Collapse answer':'Expand answer');
     }
   });
 }
