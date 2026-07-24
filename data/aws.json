@@ -8,9 +8,16 @@
     "answer": "Amazon Web Services (AWS) is a comprehensive and widely adopted cloud platform offered by Amazon. It provides over 200 fully featured services from data centers globally, including compute power, storage, databases, machine learning, and more, allowing businesses to scale and grow efficiently.",
     "code": "",
     "output": "",
-    "tips": ["Mention that it provides on-demand cloud computing platforms.", "Highlight its pay-as-you-go pricing model."],
-    "mistakes": ["Confusing it with just a web hosting service."],
-    "related": ["What is Cloud Computing?"]
+    "tips": [
+      "Mention that it provides on-demand cloud computing platforms.",
+      "Highlight its pay-as-you-go pricing model."
+    ],
+    "mistakes": [
+      "Confusing it with just a web hosting service."
+    ],
+    "related": [
+      "What is Cloud Computing?"
+    ]
   },
   {
     "uid": "aws-2",
@@ -21,9 +28,15 @@
     "answer": "Key advantages include:\n1. Cost-Effective (Pay-as-you-go)\n2. Scalability and Elasticity (Scale up or down easily)\n3. Flexibility (Wide range of services and OS choices)\n4. Security (High compliance and security standards)\n5. Global Reach (Datacenters worldwide)\n6. Reliability (High availability and fault tolerance).",
     "code": "",
     "output": "",
-    "tips": ["Use the acronym 'CSS GRR' (Cost, Scalability, Security, Global, Reliability) to remember."],
-    "mistakes": ["Saying it is completely free."],
-    "related": ["What is the AWS Free Tier?"]
+    "tips": [
+      "Use the acronym 'CSS GRR' (Cost, Scalability, Security, Global, Reliability) to remember."
+    ],
+    "mistakes": [
+      "Saying it is completely free."
+    ],
+    "related": [
+      "What is the AWS Free Tier?"
+    ]
   },
   {
     "uid": "aws-3",
@@ -34,9 +47,15 @@
     "answer": "Cloud computing is the on-demand delivery of IT resources (like compute, storage, databases) over the internet with pay-as-you-go pricing. Instead of buying and maintaining physical data centers and servers, you access technology services on an as-needed basis from a cloud provider.",
     "code": "",
     "output": "",
-    "tips": ["Contrast it with traditional on-premises data centers."],
-    "mistakes": ["Thinking it's just 'storage on the internet' (like Google Drive)."],
-    "related": ["What are the types of Cloud Computing?"]
+    "tips": [
+      "Contrast it with traditional on-premises data centers."
+    ],
+    "mistakes": [
+      "Thinking it's just 'storage on the internet' (like Google Drive)."
+    ],
+    "related": [
+      "What are the types of Cloud Computing?"
+    ]
   },
   {
     "uid": "aws-4",
@@ -47,9 +66,13 @@
     "answer": "There are three main deployment models:\n1. Public Cloud: Owned and operated by a third-party provider (e.g., AWS, Azure).\n2. Private Cloud: Used exclusively by a single business or organization.\n3. Hybrid Cloud: Combines public and private clouds, allowing data and applications to be shared between them.",
     "code": "",
     "output": "",
-    "tips": ["Give examples of when a company might use a Hybrid cloud (e.g., highly sensitive data kept on-prem, web servers on public cloud)."],
+    "tips": [
+      "Give examples of when a company might use a Hybrid cloud (e.g., highly sensitive data kept on-prem, web servers on public cloud)."
+    ],
     "mistakes": [],
-    "related": ["What are Public, Private, and Hybrid Clouds?"]
+    "related": [
+      "What are Public, Private, and Hybrid Clouds?"
+    ]
   },
   {
     "uid": "aws-5",
@@ -60,9 +83,15 @@
     "answer": "1. IaaS (Infrastructure as a Service): Provides basic building blocks (compute, networking, storage). Example: AWS EC2.\n2. PaaS (Platform as a Service): Removes the need to manage underlying infrastructure (OS, patching) so you can focus on deployment. Example: AWS Elastic Beanstalk.\n3. SaaS (Software as a Service): A completed product run and managed by the provider. Example: Gmail, Salesforce.",
     "code": "",
     "output": "",
-    "tips": ["Use the 'Pizza as a Service' analogy if asked to explain it simply."],
-    "mistakes": ["Confusing PaaS with IaaS."],
-    "related": ["What is Elastic Beanstalk?"]
+    "tips": [
+      "Use the 'Pizza as a Service' analogy if asked to explain it simply."
+    ],
+    "mistakes": [
+      "Confusing PaaS with IaaS."
+    ],
+    "related": [
+      "What is Elastic Beanstalk?"
+    ]
   },
   {
     "uid": "aws-6",
@@ -73,9 +102,14 @@
     "answer": "The AWS Global Infrastructure is the worldwide network of data centers that AWS uses to host its services. It consists of Regions, Availability Zones (AZs), and Edge Locations, designed to offer high availability, fault tolerance, and low latency globally.",
     "code": "",
     "output": "",
-    "tips": ["Mention that it is highly redundant."],
+    "tips": [
+      "Mention that it is highly redundant."
+    ],
     "mistakes": [],
-    "related": ["What are AWS Regions?", "What are Availability Zones?"]
+    "related": [
+      "What are AWS Regions?",
+      "What are Availability Zones?"
+    ]
   },
   {
     "uid": "aws-7",
@@ -86,9 +120,15 @@
     "answer": "An AWS Region is a distinct, physical geographical location in the world where AWS has multiple Availability Zones (data centers). Examples include us-east-1 (N. Virginia) and eu-west-1 (Ireland).",
     "code": "",
     "output": "",
-    "tips": ["Mention data sovereignty and latency as reasons to choose a specific region."],
-    "mistakes": ["Confusing Regions with Availability Zones."],
-    "related": ["What are Availability Zones?"]
+    "tips": [
+      "Mention data sovereignty and latency as reasons to choose a specific region."
+    ],
+    "mistakes": [
+      "Confusing Regions with Availability Zones."
+    ],
+    "related": [
+      "What are Availability Zones?"
+    ]
   },
   {
     "uid": "aws-8",
@@ -99,9 +139,15 @@
     "answer": "An Availability Zone (AZ) consists of one or more discrete data centers within an AWS Region, each with redundant power, networking, and connectivity. AZs are separated by a meaningful distance to protect against localized disasters but are connected via high-speed, low-latency links.",
     "code": "",
     "output": "",
-    "tips": ["Highlight that multi-AZ deployments provide high availability."],
-    "mistakes": ["Thinking an AZ is just a single server."],
-    "related": ["Difference between Region and Availability Zone?"]
+    "tips": [
+      "Highlight that multi-AZ deployments provide high availability."
+    ],
+    "mistakes": [
+      "Thinking an AZ is just a single server."
+    ],
+    "related": [
+      "Difference between Region and Availability Zone?"
+    ]
   },
   {
     "uid": "aws-9",
@@ -112,9 +158,15 @@
     "answer": "Edge Locations are endpoints for AWS used for caching content closer to users to reduce latency. They are primarily used by Amazon CloudFront (CDN) and Amazon Route 53. There are many more Edge Locations than Regions.",
     "code": "",
     "output": "",
-    "tips": ["Associate Edge Locations with Content Delivery Networks (CDN) and CloudFront."],
-    "mistakes": ["Confusing Edge Locations with Availability Zones."],
-    "related": ["What is CloudFront?"]
+    "tips": [
+      "Associate Edge Locations with Content Delivery Networks (CDN) and CloudFront."
+    ],
+    "mistakes": [
+      "Confusing Edge Locations with Availability Zones."
+    ],
+    "related": [
+      "What is CloudFront?"
+    ]
   },
   {
     "uid": "aws-10",
@@ -125,8 +177,12 @@
     "answer": "It dictates security responsibilities between AWS and the customer. \nAWS is responsible for 'Security OF the Cloud' (hardware, global infrastructure, managed services). \nThe Customer is responsible for 'Security IN the Cloud' (customer data, IAM, OS patching, firewall configuration).",
     "code": "",
     "output": "",
-    "tips": ["Always clearly separate 'Security OF the cloud' vs 'Security IN the cloud'."],
-    "mistakes": ["Assuming AWS manages your OS updates on standard EC2 instances."],
+    "tips": [
+      "Always clearly separate 'Security OF the cloud' vs 'Security IN the cloud'."
+    ],
+    "mistakes": [
+      "Assuming AWS manages your OS updates on standard EC2 instances."
+    ],
     "related": []
   },
   {
@@ -138,9 +194,13 @@
     "answer": "AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources.",
     "code": "",
     "output": "",
-    "tips": ["Mention that IAM is global (not region-specific)."],
+    "tips": [
+      "Mention that IAM is global (not region-specific)."
+    ],
     "mistakes": [],
-    "related": ["What are IAM Policies?"]
+    "related": [
+      "What are IAM Policies?"
+    ]
   },
   {
     "uid": "aws-12",
@@ -151,9 +211,15 @@
     "answer": "An IAM User is a unique identity with permanent long-term credentials (password/access keys) representing a single person or application. \nAn IAM Role is an identity that anyone (user, EC2 instance, AWS service) can assume temporarily to gain permissions. Roles do not have standard long-term credentials.",
     "code": "",
     "output": "",
-    "tips": ["Roles = Temporary credentials & assumable. Users = Permanent credentials."],
-    "mistakes": ["Creating IAM Users for EC2 instances instead of assigning them Roles."],
-    "related": ["What is STS?"]
+    "tips": [
+      "Roles = Temporary credentials & assumable. Users = Permanent credentials."
+    ],
+    "mistakes": [
+      "Creating IAM Users for EC2 instances instead of assigning them Roles."
+    ],
+    "related": [
+      "What is STS?"
+    ]
   },
   {
     "uid": "aws-13",
@@ -164,9 +230,15 @@
     "answer": "The principle of least privilege is a security best practice where you grant an IAM entity (user, group, or role) only the minimum permissions necessary to perform their specific job or task, and nothing more.",
     "code": "",
     "output": "",
-    "tips": ["Explain how this mitigates the blast radius if an account is compromised."],
-    "mistakes": ["Giving AdministratorAccess to all developers."],
-    "related": ["What are IAM Policies?"]
+    "tips": [
+      "Explain how this mitigates the blast radius if an account is compromised."
+    ],
+    "mistakes": [
+      "Giving AdministratorAccess to all developers."
+    ],
+    "related": [
+      "What are IAM Policies?"
+    ]
   },
   {
     "uid": "aws-14",
@@ -177,9 +249,15 @@
     "answer": "Amazon Elastic Compute Cloud (EC2) provides scalable computing capacity (virtual servers) in the AWS cloud. It eliminates the need to invest in hardware up front, allowing you to launch virtual servers, configure security and networking, and manage storage.",
     "code": "",
     "output": "",
-    "tips": ["EC2 = Virtual Machines in the cloud."],
-    "mistakes": ["Calling it a physical server."],
-    "related": ["What are EC2 Instance Types?"]
+    "tips": [
+      "EC2 = Virtual Machines in the cloud."
+    ],
+    "mistakes": [
+      "Calling it a physical server."
+    ],
+    "related": [
+      "What are EC2 Instance Types?"
+    ]
   },
   {
     "uid": "aws-15",
@@ -190,9 +268,15 @@
     "answer": "An Amazon Machine Image (AMI) provides the information required to launch an EC2 instance. It includes the operating system, application server, and applications. You can use AWS-provided AMIs, custom AMIs, or community AMIs.",
     "code": "",
     "output": "",
-    "tips": ["Mention that AMIs are region-bound but can be copied across regions."],
-    "mistakes": ["Thinking AMIs can only run Linux."],
-    "related": ["What is EC2?"]
+    "tips": [
+      "Mention that AMIs are region-bound but can be copied across regions."
+    ],
+    "mistakes": [
+      "Thinking AMIs can only run Linux."
+    ],
+    "related": [
+      "What is EC2?"
+    ]
   },
   {
     "uid": "aws-16",
@@ -203,9 +287,15 @@
     "answer": "A Security Group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. They operate at the instance level. By default, they deny all inbound traffic and allow all outbound traffic.",
     "code": "",
     "output": "",
-    "tips": ["Security groups are STATEFUL: if you send a request out, the response is automatically allowed in."],
-    "mistakes": ["Confusing Security Groups with NACLs (Network Access Control Lists)."],
-    "related": ["Difference between Security Group and NACL?"]
+    "tips": [
+      "Security groups are STATEFUL: if you send a request out, the response is automatically allowed in."
+    ],
+    "mistakes": [
+      "Confusing Security Groups with NACLs (Network Access Control Lists)."
+    ],
+    "related": [
+      "Difference between Security Group and NACL?"
+    ]
   },
   {
     "uid": "aws-17",
@@ -216,9 +306,15 @@
     "answer": "Amazon Simple Storage Service (S3) is an object storage service offering industry-leading scalability, data availability, security, and performance. You can store and retrieve any amount of data at any time.",
     "code": "",
     "output": "",
-    "tips": ["Mention it stores 'objects' in 'buckets'."],
-    "mistakes": ["Trying to install an operating system on S3 (it's object storage, not block storage like EBS)."],
-    "related": ["What are S3 Buckets?"]
+    "tips": [
+      "Mention it stores 'objects' in 'buckets'."
+    ],
+    "mistakes": [
+      "Trying to install an operating system on S3 (it's object storage, not block storage like EBS)."
+    ],
+    "related": [
+      "What are S3 Buckets?"
+    ]
   },
   {
     "uid": "aws-18",
@@ -229,9 +325,14 @@
     "answer": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including IP address ranges, subnets, and route tables.",
     "code": "",
     "output": "",
-    "tips": ["It is your private data center inside AWS."],
+    "tips": [
+      "It is your private data center inside AWS."
+    ],
     "mistakes": [],
-    "related": ["What is Public Subnet?", "What is Private Subnet?"]
+    "related": [
+      "What is Public Subnet?",
+      "What is Private Subnet?"
+    ]
   },
   {
     "uid": "aws-19",
@@ -242,9 +343,13 @@
     "answer": "A Public Subnet has a route to the Internet Gateway, allowing resources within it (like a web server) to access the public internet. A Private Subnet does not have a route to the Internet Gateway; resources inside it (like a database) cannot be accessed directly from the internet.",
     "code": "",
     "output": "",
-    "tips": ["Mention NAT Gateways are used to allow private subnets to download updates from the internet without being exposed to inbound traffic."],
+    "tips": [
+      "Mention NAT Gateways are used to allow private subnets to download updates from the internet without being exposed to inbound traffic."
+    ],
     "mistakes": [],
-    "related": ["What is Internet Gateway?"]
+    "related": [
+      "What is Internet Gateway?"
+    ]
   },
   {
     "uid": "aws-20",
@@ -255,8 +360,651 @@
     "answer": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks like hardware provisioning, database setup, patching, and backups.",
     "code": "",
     "output": "",
-    "tips": ["Mention supported engines: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora."],
-    "mistakes": ["Confusing RDS (SQL) with DynamoDB (NoSQL)."],
-    "related": ["What is DynamoDB?"]
+    "tips": [
+      "Mention supported engines: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora."
+    ],
+    "mistakes": [
+      "Confusing RDS (SQL) with DynamoDB (NoSQL)."
+    ],
+    "related": [
+      "What is DynamoDB?"
+    ]
+  },
+  {
+    "uid": "aws-21",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Intermediate",
+    "question": "What are the components of VPC?",
+    "answer": "Key components of a VPC include: Subnets (Public and Private), Route Tables, Internet Gateways (IGW), NAT Gateways, Elastic IP addresses, Network Access Control Lists (NACLs), and Security Groups.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Remember that Security Groups are stateful and NACLs are stateless."
+    ],
+    "mistakes": [],
+    "related": [
+      "What is a Route Table?",
+      "What is an Internet Gateway?"
+    ]
+  },
+  {
+    "uid": "aws-22",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Intermediate",
+    "question": "What is CIDR?",
+    "answer": "Classless Inter-Domain Routing (CIDR) is a method for allocating IP addresses and IP routing. In AWS, you use CIDR blocks (e.g., 10.0.0.0/16) to define the range of IP addresses for your VPC and subnets.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "The /16 means the first 16 bits are fixed. The smaller the suffix number, the larger the network."
+    ],
+    "mistakes": [
+      "Confusing CIDR blocks with individual IP addresses."
+    ],
+    "related": []
+  },
+  {
+    "uid": "aws-23",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Intermediate",
+    "question": "What is a Route Table?",
+    "answer": "A Route Table contains a set of rules, called routes, that are used to determine where network traffic from your subnet or gateway is directed.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Every subnet must be associated with a route table. If not explicitly associated, it uses the main route table."
+    ],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-24",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Beginner",
+    "question": "What is an Internet Gateway (IGW)?",
+    "answer": "An Internet Gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. It provides a target in your VPC route tables for internet-routable traffic.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "You can only attach one IGW to a VPC at a time."
+    ],
+    "mistakes": [],
+    "related": [
+      "What is a NAT Gateway?"
+    ]
+  },
+  {
+    "uid": "aws-25",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Intermediate",
+    "question": "What is a NAT Gateway?",
+    "answer": "A Network Address Translation (NAT) Gateway allows instances in a private subnet to connect to the internet or other AWS services, but prevents the internet from initiating a connection with those instances.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "NAT Gateways must be placed in a Public Subnet and require an Elastic IP."
+    ],
+    "mistakes": [
+      "Placing a NAT Gateway in a private subnet."
+    ],
+    "related": [
+      "Difference between NAT Gateway and Internet Gateway?"
+    ]
+  },
+  {
+    "uid": "aws-26",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Intermediate",
+    "question": "Difference between NAT Gateway and Internet Gateway?",
+    "answer": "An Internet Gateway (IGW) allows bidirectional internet access for public subnets (inbound and outbound). A NAT Gateway allows unidirectional internet access for private subnets (outbound only), masking the private IPs of instances.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-27",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Advanced",
+    "question": "What is VPC Peering?",
+    "answer": "VPC Peering is a networking connection between two VPCs that enables you to route traffic between them using private IPv4 or IPv6 addresses. Instances in either VPC can communicate with each other as if they are within the same network.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "VPC Peering is not transitive (If A peers with B, and B peers with C, A is not peered with C)."
+    ],
+    "mistakes": [
+      "Assuming VPC peering works with overlapping CIDR blocks (it does not)."
+    ],
+    "related": [
+      "What is Transit Gateway?"
+    ]
+  },
+  {
+    "uid": "aws-28",
+    "category": "AWS",
+    "topic": "VPC",
+    "difficulty": "Advanced",
+    "question": "What is a Transit Gateway?",
+    "answer": "AWS Transit Gateway connects VPCs and on-premises networks through a central hub. This simplifies your network and puts an end to complex peering relationships.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Use Transit Gateway for hub-and-spoke network architectures to avoid transitive peering limitations."
+    ],
+    "mistakes": [],
+    "related": [
+      "What is VPC Peering?"
+    ]
+  },
+  {
+    "uid": "aws-29",
+    "category": "AWS",
+    "topic": "Route 53",
+    "difficulty": "Beginner",
+    "question": "What is Route 53?",
+    "answer": "Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It translates friendly domain names like www.example.com into IP addresses like 192.0.2.1.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention it can also perform health checks and domain registration."
+    ],
+    "mistakes": [],
+    "related": [
+      "What is DNS?"
+    ]
+  },
+  {
+    "uid": "aws-30",
+    "category": "AWS",
+    "topic": "Route 53",
+    "difficulty": "Beginner",
+    "question": "What is DNS?",
+    "answer": "DNS (Domain Name System) is often called the phonebook of the internet. It translates human-readable domain names (like amazon.com) to machine-readable IP addresses (like 192.0.2.44), allowing browsers to load internet resources.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-31",
+    "category": "AWS",
+    "topic": "Route 53",
+    "difficulty": "Intermediate",
+    "question": "What are Hosted Zones?",
+    "answer": "A Hosted Zone is a container for records, and records contain information about how you want to route traffic for a specific domain and its subdomains. Hosted zones can be Public (internet-facing) or Private (internal to a VPC).",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": [
+      "What are DNS Records?"
+    ]
+  },
+  {
+    "uid": "aws-32",
+    "category": "AWS",
+    "topic": "Route 53",
+    "difficulty": "Intermediate",
+    "question": "What are DNS Records?",
+    "answer": "DNS records are instructions that live in authoritative DNS servers and provide information about a domain, including what IP address is associated with that domain and how to handle requests for it. Common types include A (IPv4), AAAA (IPv6), CNAME, and Alias records.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Always mention Alias records in AWS, as they are AWS-specific extensions to DNS that map apex domains to AWS resources like ELBs or S3 buckets."
+    ],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-33",
+    "category": "AWS",
+    "topic": "CloudFront",
+    "difficulty": "Beginner",
+    "question": "What is CloudFront?",
+    "answer": "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention that it caches content at Edge Locations."
+    ],
+    "mistakes": [],
+    "related": [
+      "What is CDN?"
+    ]
+  },
+  {
+    "uid": "aws-34",
+    "category": "AWS",
+    "topic": "CloudFront",
+    "difficulty": "Beginner",
+    "question": "What is a CDN?",
+    "answer": "A Content Delivery Network (CDN) is a geographically distributed group of servers which work together to provide fast delivery of internet content by caching it close to the end users.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-35",
+    "category": "AWS",
+    "topic": "CloudFront",
+    "difficulty": "Intermediate",
+    "question": "Difference between CloudFront and S3?",
+    "answer": "S3 is an object storage service where you physically store your files (the origin). CloudFront is a Content Delivery Network (CDN) that caches those S3 files at edge locations globally so users can download them faster.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [
+      "Thinking CloudFront stores the permanent master copy of the data."
+    ],
+    "related": []
+  },
+  {
+    "uid": "aws-36",
+    "category": "AWS",
+    "topic": "RDS",
+    "difficulty": "Beginner",
+    "question": "Supported Databases in RDS?",
+    "answer": "Amazon RDS supports six main database engines: Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, and SQL Server.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [
+      "Including DynamoDB or Redshift (these are separate services)."
+    ],
+    "related": []
+  },
+  {
+    "uid": "aws-37",
+    "category": "AWS",
+    "topic": "RDS",
+    "difficulty": "Intermediate",
+    "question": "What is Multi-AZ in RDS?",
+    "answer": "Multi-AZ is a feature where RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone. In the event of infrastructure failure, RDS performs an automatic failover to the standby.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Emphasize that Multi-AZ is for High Availability/Disaster Recovery, NOT for improving read performance."
+    ],
+    "mistakes": [
+      "Saying Multi-AZ improves query performance."
+    ],
+    "related": [
+      "Difference between Multi-AZ and Read Replica?"
+    ]
+  },
+  {
+    "uid": "aws-38",
+    "category": "AWS",
+    "topic": "RDS",
+    "difficulty": "Intermediate",
+    "question": "What is a Read Replica?",
+    "answer": "A Read Replica is a read-only copy of your database. It is updated asynchronously and is used to scale out read-heavy database workloads by offloading read queries from the primary database instance.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Read Replicas are for PERFORMANCE scaling."
+    ],
+    "mistakes": [
+      "Using Read Replicas as the primary Disaster Recovery mechanism."
+    ],
+    "related": [
+      "Difference between Multi-AZ and Read Replica?"
+    ]
+  },
+  {
+    "uid": "aws-39",
+    "category": "AWS",
+    "topic": "RDS",
+    "difficulty": "Advanced",
+    "question": "Difference between Multi-AZ and Read Replica?",
+    "answer": "Multi-AZ is for Disaster Recovery (High Availability); it is synchronous, invisible to the application, and the standby cannot be used to serve read traffic. A Read Replica is for Performance (Scaling); it is asynchronous, visible to the application, and actively serves read traffic.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-40",
+    "category": "AWS",
+    "topic": "RDS",
+    "difficulty": "Intermediate",
+    "question": "What is Amazon Aurora?",
+    "answer": "Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud, that combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention it can be up to 5x faster than standard MySQL and 3x faster than standard PostgreSQL."
+    ],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-41",
+    "category": "AWS",
+    "topic": "DynamoDB",
+    "difficulty": "Beginner",
+    "question": "What is DynamoDB?",
+    "answer": "Amazon DynamoDB is a fully managed, highly available, Serverless NoSQL database service that provides fast and predictable performance with seamless scalability.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Emphasize 'fully managed' and 'NoSQL'."
+    ],
+    "mistakes": [
+      "Confusing it with a relational database like RDS."
+    ],
+    "related": [
+      "Difference between SQL and NoSQL?"
+    ]
+  },
+  {
+    "uid": "aws-42",
+    "category": "AWS",
+    "topic": "DynamoDB",
+    "difficulty": "Intermediate",
+    "question": "Difference between SQL and NoSQL?",
+    "answer": "SQL databases (like MySQL) are relational, use structured schemas, and scale vertically. NoSQL databases (like DynamoDB) are non-relational, have dynamic/flexible schemas (key-value or document), and scale horizontally.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-43",
+    "category": "AWS",
+    "topic": "DynamoDB",
+    "difficulty": "Advanced",
+    "question": "Primary Key Types in DynamoDB?",
+    "answer": "There are two types of primary keys in DynamoDB: \n1. Partition Key (simple primary key): Composed of one attribute. DynamoDB uses the partition key's value as input to an internal hash function.\n2. Partition Key and Sort Key (composite primary key): Composed of two attributes, allowing multiple items to have the same partition key as long as they have different sort keys.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": [
+      "What is Partition Key?",
+      "What is Sort Key?"
+    ]
+  },
+  {
+    "uid": "aws-44",
+    "category": "AWS",
+    "topic": "Lambda",
+    "difficulty": "Beginner",
+    "question": "What is AWS Lambda?",
+    "answer": "AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. You only pay for the compute time you consume\u2014there is no charge when your code is not running.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Lambda is event-driven; it runs code in response to events."
+    ],
+    "mistakes": [],
+    "related": [
+      "Benefits of Serverless?"
+    ]
+  },
+  {
+    "uid": "aws-45",
+    "category": "AWS",
+    "topic": "Lambda",
+    "difficulty": "Intermediate",
+    "question": "Benefits of Serverless?",
+    "answer": "1. No servers to provision or manage.\n2. Scales automatically with usage.\n3. Pay only for what you use (idle time costs nothing).\n4. Built-in high availability and fault tolerance.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [
+      "Saying 'Serverless means there are no servers' (servers exist, but AWS manages them)."
+    ],
+    "related": []
+  },
+  {
+    "uid": "aws-46",
+    "category": "AWS",
+    "topic": "Lambda",
+    "difficulty": "Intermediate",
+    "question": "What is Lambda Timeout?",
+    "answer": "The maximum execution time for an AWS Lambda function is 15 minutes (900 seconds). If the function runs longer than the configured timeout, AWS terminates the execution.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention that it's important to set realistic timeouts to avoid paying for stalled code."
+    ],
+    "mistakes": [
+      "Thinking Lambda can run long-running batch jobs that take hours."
+    ],
+    "related": []
+  },
+  {
+    "uid": "aws-47",
+    "category": "AWS",
+    "topic": "API Gateway",
+    "difficulty": "Beginner",
+    "question": "What is API Gateway?",
+    "answer": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. It acts as the 'front door' for applications to access data, business logic, or functionality from backend services.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": [
+      "Types of APIs?"
+    ]
+  },
+  {
+    "uid": "aws-48",
+    "category": "AWS",
+    "topic": "API Gateway",
+    "difficulty": "Intermediate",
+    "question": "Difference between REST and HTTP API?",
+    "answer": "REST APIs offer extensive API management features (API keys, throttling, complex transformations). HTTP APIs are designed for minimal overhead, lower latency, and cost up to 71% less than REST APIs, but lack some of the advanced management features.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-49",
+    "category": "AWS",
+    "topic": "CloudWatch",
+    "difficulty": "Beginner",
+    "question": "What is CloudWatch?",
+    "answer": "Amazon CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers (SREs), and IT managers. It collects monitoring and operational data in the form of logs, metrics, and events.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "CloudWatch = Performance Monitoring."
+    ],
+    "mistakes": [
+      "Confusing CloudWatch (performance) with CloudTrail (auditing)."
+    ],
+    "related": [
+      "What are Metrics?",
+      "Difference between CloudTrail and CloudWatch?"
+    ]
+  },
+  {
+    "uid": "aws-50",
+    "category": "AWS",
+    "topic": "CloudWatch",
+    "difficulty": "Intermediate",
+    "question": "What are CloudWatch Metrics and Alarms?",
+    "answer": "Metrics are numerical data points representing the performance of a system over time (e.g., CPU utilization). Alarms watch a specific metric and perform one or more actions (like sending an SNS notification or triggering Auto Scaling) if the metric breaches a defined threshold.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-51",
+    "category": "AWS",
+    "topic": "CloudTrail",
+    "difficulty": "Beginner",
+    "question": "What is CloudTrail?",
+    "answer": "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It records all API calls made within your AWS account.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "CloudTrail = Auditing (Who did what, when, and from where)."
+    ],
+    "mistakes": [],
+    "related": [
+      "Difference between CloudTrail and CloudWatch?"
+    ]
+  },
+  {
+    "uid": "aws-52",
+    "category": "AWS",
+    "topic": "Monitoring",
+    "difficulty": "Intermediate",
+    "question": "Difference between CloudTrail and CloudWatch?",
+    "answer": "CloudWatch monitors the **performance** of your AWS resources and applications (e.g., high CPU usage). CloudTrail monitors the **API activity** in your AWS environment for auditing purposes (e.g., who terminated an EC2 instance).",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Remember: Watch = What is happening (Metrics); Trail = Who did it (Audit)."
+    ],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-53",
+    "category": "AWS",
+    "topic": "SNS & SQS",
+    "difficulty": "Beginner",
+    "question": "What is SNS?",
+    "answer": "Amazon Simple Notification Service (SNS) is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "SNS is Push-based."
+    ],
+    "mistakes": [],
+    "related": [
+      "Difference between SNS and SQS?"
+    ]
+  },
+  {
+    "uid": "aws-54",
+    "category": "AWS",
+    "topic": "SNS & SQS",
+    "difficulty": "Beginner",
+    "question": "What is SQS?",
+    "answer": "Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "SQS is Pull-based (receivers must poll the queue)."
+    ],
+    "mistakes": [],
+    "related": [
+      "Difference between SNS and SQS?"
+    ]
+  },
+  {
+    "uid": "aws-55",
+    "category": "AWS",
+    "topic": "SNS & SQS",
+    "difficulty": "Intermediate",
+    "question": "Difference between SNS and SQS?",
+    "answer": "SNS is a **pub/sub (publish/subscribe) system** where messages are pushed to multiple subscribers instantly. SQS is a **message queue system** where consumers poll (pull) messages from a queue and process them one by one.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "SNS = Push, SQS = Pull. They are often used together (fan-out pattern)."
+    ],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-56",
+    "category": "AWS",
+    "topic": "SNS & SQS",
+    "difficulty": "Advanced",
+    "question": "What is a FIFO Queue?",
+    "answer": "A First-In-First-Out (FIFO) SQS queue guarantees that messages are processed exactly once, in the exact order that they are sent.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Contrast with standard queues, which offer 'best-effort' ordering and 'at-least-once' delivery."
+    ],
+    "mistakes": [],
+    "related": [
+      "What is a Dead Letter Queue?"
+    ]
+  },
+  {
+    "uid": "aws-57",
+    "category": "AWS",
+    "topic": "SNS & SQS",
+    "difficulty": "Advanced",
+    "question": "What is a Dead Letter Queue (DLQ)?",
+    "answer": "A Dead Letter Queue is a secondary queue used in SQS and SNS where messages that cannot be processed successfully (after a set number of retries) are sent. This allows you to isolate problematic messages and debug why they failed.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": []
+  },
+  {
+    "uid": "aws-58",
+    "category": "AWS",
+    "topic": "Containers",
+    "difficulty": "Beginner",
+    "question": "What is Docker?",
+    "answer": "Docker is a software platform that allows you to build, test, and deploy applications quickly. It packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [
+      "Calling containers Virtual Machines. (Containers share the host OS, VMs have their own OS)."
+    ],
+    "related": [
+      "What is ECS?"
+    ]
+  },
+  {
+    "uid": "aws-59",
+    "category": "AWS",
+    "topic": "Containers",
+    "difficulty": "Intermediate",
+    "question": "Difference between ECS and EKS?",
+    "answer": "Amazon ECS (Elastic Container Service) is an AWS-native container orchestration service that is simple to use and integrates deeply with AWS. Amazon EKS (Elastic Kubernetes Service) is a managed Kubernetes service used to run Kubernetes on AWS without needing to install and operate your own Kubernetes control plane.",
+    "code": "",
+    "output": "",
+    "tips": [],
+    "mistakes": [],
+    "related": [
+      "What is Fargate?"
+    ]
+  },
+  {
+    "uid": "aws-60",
+    "category": "AWS",
+    "topic": "Containers",
+    "difficulty": "Intermediate",
+    "question": "What is AWS Fargate?",
+    "answer": "AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS and EKS. Fargate removes the need to provision and manage servers (EC2 instances), letting you specify and pay for resources per application.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Fargate is to containers what Lambda is to code functions."
+    ],
+    "mistakes": [],
+    "related": []
   }
 ]
