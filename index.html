@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkillInterview - Modern Tech & Behavioral Q&A App</title>
-  <meta name="description" content="Professional Mobile-first Interview Preparation App featuring Dark Slate aesthetics, JSON datasets, Flashcards, and Progress Tracking.">
+  <meta name="description" content="Professional Mobile, Tablet & Desktop Interview Preparation App featuring Dark Slate aesthetics, JSON datasets, Flashcards, and Progress Tracking.">
   
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -13,7 +13,7 @@
 <body>
 
   <!-- Main Viewport Shell -->
-  <div id="app-viewport" class="desktop-frame-mode">
+  <div id="app-viewport" class="device-mobile-mode">
     
     <!-- Mobile App Container -->
     <div id="app-container">
@@ -37,10 +37,20 @@
             <div class="brand-subtitle">PRO PREP EDITION</div>
           </div>
         </div>
+
+        <!-- Responsive Device Switcher Control -->
         <div class="header-actions">
-          <button id="mode-toggle-btn" class="icon-btn" title="Toggle Desktop / Mobile Frame View">
-            🖥️
-          </button>
+          <div class="device-switcher" title="Preview UI/UX Layout Modes">
+            <button class="device-btn active" data-mode="mobile" title="Mobile Phone View">
+              📱 <span class="device-btn-text">Mobile</span>
+            </button>
+            <button class="device-btn" data-mode="tablet" title="Tablet View">
+              💻 <span class="device-btn-text">Tablet</span>
+            </button>
+            <button class="device-btn" data-mode="desktop" title="Desktop Fluid View">
+              🖥️ <span class="device-btn-text">Desktop</span>
+            </button>
+          </div>
         </div>
       </header>
 

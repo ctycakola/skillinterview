@@ -1,6 +1,6 @@
 /**
  * UIController Module
- * Manages DOM updates, user interactions, routing, cards, flashcards, and stats.
+ * Manages DOM updates, user interactions, routing, cards, flashcards, stats, and device mode preview.
  */
 
 import { StorageManager } from './storage.js';
@@ -33,7 +33,7 @@ export class UIController {
       
       searchInput: document.getElementById('search-input'),
       chipContainer: document.getElementById('filter-chips'),
-      modeToggleBtn: document.getElementById('mode-toggle-btn'),
+      deviceBtns: document.querySelectorAll('.device-btn'),
       
       // Flashcards
       flashcardInner: document.getElementById('flashcard-inner'),
@@ -63,7 +63,7 @@ export class UIController {
     this.renderFilterChips();
     this.renderQuestions();
     this.updateStats();
-    this.applyViewMode(StorageManager.getMode());
+    this.applyDeviceMode(StorageManager.getMode());
   }
 
   // Switch Active View (Browse, Flashcards, Bookmarks, Stats)
@@ -105,26 +105,28 @@ export class UIController {
     }
   }
 
-  // Toggle View Mode (Mobile Frame vs Fluid Desktop)
-  toggleViewMode() {
-    const currentMode = StorageManager.getMode();
-    const newMode = currentMode === 'mobile' ? 'fluid' : 'mobile';
-    StorageManager.setMode(newMode);
-    this.applyViewMode(newMode);
+  // Apply Responsive Device Mode (mobile, tablet, desktop)
+  setDeviceMode(mode) {
+    StorageManager.setMode(mode);
+    this.applyDeviceMode(mode);
   }
 
-  applyViewMode(mode) {
-    if (mode === 'fluid') {
-      this.elements.viewport.classList.remove('desktop-frame-mode');
-      this.elements.viewport.classList.add('fluid-mode');
-      this.elements.modeToggleBtn.innerHTML = '📱';
-      this.elements.modeToggleBtn.title = 'Switch to Mobile Frame Mode';
-    } else {
-      this.elements.viewport.classList.remove('fluid-mode');
-      this.elements.viewport.classList.add('desktop-frame-mode');
-      this.elements.modeToggleBtn.innerHTML = '🖥️';
-      this.elements.modeToggleBtn.title = 'Switch to Fluid Desktop Mode';
-    }
+  applyDeviceMode(mode) {
+    // Remove existing device classes
+    this.elements.viewport.classList.remove('device-mobile-mode', 'device-tablet-mode', 'device-desktop-mode');
+    
+    // Add active device mode class
+    const className = `device-${mode}-mode`;
+    this.elements.viewport.classList.add(className);
+
+    // Update active state on header device buttons
+    this.elements.deviceBtns.forEach(btn => {
+      if (btn.dataset.mode === mode) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
   }
 
   // Render Category Cards Grid

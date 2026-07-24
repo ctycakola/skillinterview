@@ -34,10 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       }, 200);
     });
 
-    // Wire Mode Toggle (Mobile Frame vs Fluid View)
-    const modeToggleBtn = document.getElementById('mode-toggle-btn');
-    modeToggleBtn.addEventListener('click', () => {
-      uiController.toggleViewMode();
+    // Wire Device Mode Switcher (Mobile, Tablet, Desktop)
+    document.querySelectorAll('.device-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode;
+        uiController.setDeviceMode(mode);
+      });
     });
 
     // Wire Flashcard Controls
@@ -73,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
 
-    console.log('⚡ SkillInterview App initialized successfully.');
+    console.log('⚡ SkillInterview Responsive App initialized successfully.');
   } catch (error) {
     console.error('Failed to boot SkillInterview app:', error);
   }

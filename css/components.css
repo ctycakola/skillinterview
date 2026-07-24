@@ -1,22 +1,23 @@
 /* ==========================================
    SkillInterview - Components CSS
+   (Adaptive Mobile, Tablet & Desktop Grid Layouts)
    ========================================== */
 
 /* Search & Filter Header */
 .search-box-container {
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .search-input {
   width: 100%;
-  padding: 12px 16px 12px 42px;
+  padding: 14px 18px 14px 46px;
   background: var(--bg-card);
   border: 1px solid var(--border-slate);
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-family: var(--font-main);
-  font-size: 14px;
+  font-size: 15px;
   outline: none;
   transition: all var(--transition-fast);
 }
@@ -29,27 +30,39 @@
 
 .search-icon {
   position: absolute;
-  left: 14px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
-  font-size: 16px;
+  font-size: 18px;
   pointer-events: none;
 }
 
-/* Category Cards Grid */
+/* Responsive Category Cards Grid */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
   margin-bottom: 24px;
+}
+
+#app-viewport.device-mobile-mode .category-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#app-viewport.device-tablet-mode .category-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#app-viewport.device-desktop-mode .category-grid {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .category-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 16px 14px;
+  padding: 18px 16px;
   cursor: pointer;
   transition: all var(--transition-normal);
   display: flex;
@@ -57,6 +70,7 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  min-height: 120px;
 }
 
 .category-card:hover, .category-card.active {
@@ -74,18 +88,18 @@
   width: 100%;
   height: 3px;
   background: var(--card-color, var(--accent-cyan));
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .category-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-sm);
   background: var(--card-accent-bg, rgba(6, 182, 212, 0.1));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 12px;
 }
 
@@ -105,10 +119,10 @@
 /* Horizontal Filter Chips */
 .filter-chips-container {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   overflow-x: auto;
   padding-bottom: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   scrollbar-width: none;
 }
 .filter-chips-container::-webkit-scrollbar {
@@ -116,12 +130,12 @@
 }
 
 .chip-btn {
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -143,7 +157,7 @@
 .questions-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .q-card {
@@ -156,13 +170,14 @@
 
 .q-card:hover {
   border-color: var(--border-slate);
+  box-shadow: var(--shadow-sm);
 }
 
 .q-card-header {
-  padding: 16px;
+  padding: 18px 20px;
   cursor: pointer;
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: flex-start;
   justify-content: space-between;
 }
@@ -173,16 +188,16 @@
 
 .q-badges {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
   margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
 .badge {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-xs);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -194,30 +209,30 @@
 .badge-topic { background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
 
 .q-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .q-header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .star-btn {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   transition: transform var(--transition-bounce), color var(--transition-fast);
   padding: 4px;
 }
 
 .star-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
   color: var(--accent-amber);
 }
 
@@ -239,37 +254,37 @@
 /* Question Card Body */
 .q-card-body {
   display: none;
-  padding: 0 16px 16px 16px;
+  padding: 0 20px 20px 20px;
   border-top: 1px solid var(--border-subtle);
-  background: rgba(11, 15, 25, 0.4);
+  background: rgba(11, 15, 25, 0.5);
 }
 
 .q-card.open .q-card-body {
   display: block;
-  animation: fadeIn 0.2s ease-out;
+  animation: fadeIn 0.25s ease-out;
 }
 
 .answer-section {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .answer-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--accent-cyan);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 .answer-text {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 12px;
+  line-height: 1.65;
+  margin-bottom: 14px;
 }
 
 /* Code Snippet Box */
@@ -277,7 +292,7 @@
   background: var(--bg-app);
   border: 1px solid var(--border-slate);
   border-radius: var(--radius-sm);
-  margin: 12px 0;
+  margin: 14px 0;
   position: relative;
   overflow: hidden;
 }
@@ -286,11 +301,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 12px;
+  padding: 8px 14px;
   background: var(--bg-elevated);
   border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-code);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-muted);
 }
 
@@ -298,11 +313,11 @@
   background: transparent;
   border: none;
   color: var(--text-muted);
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   transition: color var(--transition-fast);
 }
 
@@ -311,10 +326,10 @@
 }
 
 .code-content {
-  padding: 12px;
+  padding: 14px;
   font-family: var(--font-code);
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.55;
   color: #e2e8f0;
   overflow-x: auto;
   white-space: pre;
@@ -323,27 +338,27 @@
 /* Key Takeaways */
 .takeaways-box {
   background: rgba(99, 102, 241, 0.08);
-  border-left: 3px solid var(--accent-indigo);
+  border-left: 4px solid var(--accent-indigo);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 10px 14px;
-  margin: 12px 0;
+  padding: 12px 16px;
+  margin: 14px 0;
 }
 
 .takeaways-title {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--accent-indigo);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .takeaways-list {
-  padding-left: 16px;
-  font-size: 13px;
+  padding-left: 18px;
+  font-size: 14px;
   color: var(--text-secondary);
 }
 
 .takeaways-list li {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 /* Card Action Toolbar (Mastered Toggle) */
@@ -351,23 +366,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 14px;
-  padding-top: 10px;
+  margin-top: 16px;
+  padding-top: 12px;
   border-top: 1px dashed var(--border-subtle);
 }
 
 .master-toggle-btn {
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-slate);
   background: var(--bg-card);
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   transition: all var(--transition-fast);
 }
 
@@ -383,18 +398,18 @@
 }
 
 /* ==========================================
-   FLASHCARD MODE (3D Flip Effect)
+   FLASHCARD MODE (3D Flip Stage)
    ========================================== */
 .flashcard-stage {
   perspective: 1000px;
   width: 100%;
-  min-height: 380px;
-  margin: 20px 0;
+  max-width: 680px;
+  margin: 20px auto;
 }
 
 .flashcard-inner {
   width: 100%;
-  height: 380px;
+  height: 400px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -414,7 +429,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-slate);
   box-shadow: var(--shadow-md);
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -439,15 +454,16 @@
 
 .flashcard-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 16px;
-  gap: 12px;
+  max-width: 480px;
+  margin: 20px auto 0;
+  gap: 14px;
 }
 
 .fc-btn {
   flex: 1;
-  padding: 12px;
+  padding: 12px 18px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-slate);
   background: var(--bg-card);
@@ -480,49 +496,54 @@
 .stats-summary-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+#app-viewport.device-desktop-mode .stats-summary-grid,
+#app-viewport.device-tablet-mode .stats-summary-grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .stat-box {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .stat-val {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
   color: var(--accent-cyan);
   line-height: 1.2;
 }
 
 .stat-lbl {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
   font-weight: 600;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .progress-bar-container {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 16px;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
 }
 
 .progress-track {
-  height: 10px;
+  height: 12px;
   width: 100%;
   background: var(--bg-slate-900);
   border-radius: var(--radius-pill);
   overflow: hidden;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .progress-fill {
@@ -536,12 +557,12 @@
 /* Empty States */
 .empty-state {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
   color: var(--text-muted);
 }
 
 .empty-icon {
-  font-size: 44px;
-  margin-bottom: 12px;
+  font-size: 48px;
+  margin-bottom: 14px;
   opacity: 0.6;
 }
