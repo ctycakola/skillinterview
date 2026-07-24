@@ -1,39 +1,23 @@
-const BOOKMARKS_KEY = 'skillinterview_bookmarks';
+const KEYS = { bookmarks: 'skillinterview.bookmarks', completed: 'skillinterview.completed', lastCategory: 'skillinterview.lastCategory' };
 
-class BookmarkManager {
-  static getBookmarks() {
-    return JSON.parse(localStorage.getItem(BOOKMARKS_KEY)) || [];
-  }
+const readSet = key => new Set(JSON.parse(localStorage.getItem(key) || '[]'));
+const writeSet = (key, set) => localStorage.setItem(key, JSON.stringify([...set]));
 
-  static isBookmarked(questionId, category) {
-    const bookmarks = this.getBookmarks();
-    return bookmarks.some(b => b.id === questionId && b.category === category);
-  }
-
-  static toggleBookmark(question, btnElement) {
-    let bookmarks = this.getBookmarks();
-    const existingIndex = bookmarks.findIndex(b => b.id === question.id && b.category === question.category);
-
-    if (existingIndex >= 0) {
-      // Remove bookmark
-      bookmarks.splice(existingIndex, 1);
-      if(btnElement) {
-        btnElement.classList.remove('bookmarked');
-        btnElement.innerHTML = '<i class="bi bi-bookmark"></i> Save';
-      }
-    } else {
-      // Add bookmark
-      bookmarks.push(question);
-      if(btnElement) {
-        btnElement.classList.add('bookmarked');
-        btnElement.innerHTML = '<i class="bi bi-bookmark-fill"></i> Saved';
-      }
-    }
-    
-    localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
-    return existingIndex < 0; // returns true if added, false if removed
-  }
-}
-
-// Global exposure for onClick events in HTML strings if needed
-window.BookmarkManager = BookmarkManager;
+export const progressStore = {
+  bookmarks: () => readSet(KEYS.bookmarks),
+  completed: () => readSet(KEYS.completed),
+  toggleBookmark(uid) {
+    const items = readSet(KEYS.bookmarks);
+    items.has(uid) ? items.delete(uid) : items.add(uid);
+    writeSet(KEYS.bookmarks, items);
+    return items.has(uid);
+  },
+  toggleCompleted(uid) {
+    const items = readSet(KEYS.completed);
+    items.has(uid) ? items.delete(uid) : items.add(uid);
+    writeSet(KEYS.completed, items);
+    return items.has(uid);
+  },
+  setLastCategory(categoryId) { localStorage.setItem(KEYS.lastCategory, categoryId); },
+  getLastCategory() { return localStorage.getItem(KEYS.lastCategory) || 'python'; }
+};

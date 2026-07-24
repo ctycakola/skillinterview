@@ -1,40 +1,19 @@
-class SearchManager {
-  static CATEGORIES = [
-    'python.json', 'aws.json', 'rag.json', 'sql.json', 
-    'docker.json', 'linux.json', 'systemdesign.json', 'ml.json', 'genai.json'
-  ];
+export const searchQuestions = (questions, query) => {
+  const normalized = query.trim().toLocaleLowerCase();
+  if (!normalized) return questions;
+  return questions.filter(item =>
+    [item.question, item.answer, item.topic, item.category, ...(item.tips || []), ...(item.related || [])]
+      .filter(Boolean).some(value => value.toLocaleLowerCase().includes(normalized))
+  );
+};
 
-  static async searchAll(query) {
-    query = query.toLowerCase().trim();
-    if (!query) return [];
+export const filterDifficulty = (questions, difficulty) =>
+  difficulty === 'All' ? questions : questions.filter(item => item.difficulty === difficulty);
 
-    let results = [];
-    for (const file of this.CATEGORIES) {
-      const questions = await DataLoader.loadCategory(file);
-      const matched = questions.filter(q => {
-        return q.question.toLowerCase().includes(query) || 
-               q.answer.toLowerCase().includes(query) ||
-               (q.topic && q.topic.toLowerCase().includes(query));
-      });
-      results = results.concat(matched);
-    }
-    return results;
-  }
+export function debounce(callback, delay = 160) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => callback(...args), delay);
+  };
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('globalSearch');
-  const resultsContainer = document.getElementById('searchResults'); // if present
-
-  if (searchInput) {
-    searchInput.addEventListener('keypress', async (e) => {
-      if (e.key === 'Enter') {
-        const query = searchInput.value;
-        if(query) {
-           // Redirect to categories.html with search query
-           window.location.href = `categories.html?search=${encodeURIComponent(query)}`;
-        }
-      }
-    });
-  }
-});

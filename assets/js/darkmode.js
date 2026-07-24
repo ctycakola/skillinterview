@@ -1,30 +1,24 @@
-const THEME_KEY = 'skillinterview_theme';
+const THEME_KEY = 'skillinterview.theme';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const themeToggleBtn = document.getElementById('themeToggle');
-  const body = document.body;
-  
-  // Load saved theme
-  const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
-  applyTheme(savedTheme);
+export function applySavedTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = theme;
+  updateToggle(theme);
+}
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      applyTheme(newTheme);
-      localStorage.setItem(THEME_KEY, newTheme);
-    });
-  }
+export function toggleDarkMode() {
+  const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem(THEME_KEY, theme);
+  updateToggle(theme);
+}
 
-  function applyTheme(theme) {
-    body.setAttribute('data-theme', theme);
-    if(themeToggleBtn) {
-      if(theme === 'dark') {
-        themeToggleBtn.innerHTML = '<i class="bi bi-sun"></i>';
-      } else {
-        themeToggleBtn.innerHTML = '<i class="bi bi-moon"></i>';
-      }
-    }
-  }
-});
+function updateToggle(theme) {
+  const button = document.querySelector('#theme-toggle');
+  if (!button) return;
+  const dark = theme === 'dark';
+  button.innerHTML = `<i class="bi bi-${dark ? 'sun' : 'moon-stars'}"></i>`;
+  button.setAttribute('aria-label', dark ? 'Use light mode' : 'Use dark mode');
+  button.title = dark ? 'Use light mode' : 'Use dark mode';
+}
