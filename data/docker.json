@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "Docker",
+    "topic": "Basics",
+    "difficulty": "Beginner",
+    "question": "What is Docker?",
+    "answer": "Docker is a platform designed to help developers build, share, and run modern applications using containers.",
+    "code": "docker run hello-world",
+    "output": "Hello from Docker!",
+    "tips": [
+      "Mention 'build once, run anywhere'.",
+      "Explain how it differs from VMs."
+    ],
+    "mistakes": [
+      "Calling a container a Virtual Machine."
+    ],
+    "related": [
+      "What is a Dockerfile?",
+      "Docker Image vs Container"
+    ]
+  }
+]

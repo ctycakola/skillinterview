@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "Machine Learning",
+    "topic": "Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is Overfitting?",
+    "answer": "Overfitting happens when a model learns the detail and noise in the training data to the extent that it negatively impacts the performance of the model on new data.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention regularization as a fix.",
+      "Draw the bias-variance tradeoff parallel."
+    ],
+    "mistakes": [
+      "Confusing it with Underfitting."
+    ],
+    "related": [
+      "What is cross-validation?",
+      "L1 vs L2 Regularization"
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "category": "Python",
+    "topic": "Basics",
+    "difficulty": "Beginner",
+    "question": "What is Python?",
+    "answer": "Python is a high-level interpreted programming language.",
+    "code": "print('Hello World')",
+    "output": "Hello World",
+    "tips": [
+      "Mention readability",
+      "Mention interpreted language"
+    ],
+    "mistakes": [
+      "Do not call Python compiled."
+    ],
+    "related": [
+      "Why Python is popular?",
+      "Features of Python"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Python",
+    "topic": "Data Types",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between list and tuple?",
+    "answer": "Lists are mutable, whereas tuples are immutable.",
+    "code": "my_list = [1, 2]\nmy_tuple = (1, 2)",
+    "output": "",
+    "tips": [
+      "Explain mutability",
+      "Mention performance differences (tuples are slightly faster)"
+    ],
+    "mistakes": [
+      "Saying tuples can be modified."
+    ],
+    "related": [
+      "What is a dictionary?",
+      "Set vs List"
+    ]
+  }
+]

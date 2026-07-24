@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "SQL",
+    "topic": "Joins",
+    "difficulty": "Beginner",
+    "question": "What is an INNER JOIN?",
+    "answer": "An INNER JOIN returns records that have matching values in both tables.",
+    "code": "SELECT * FROM TableA INNER JOIN TableB ON TableA.id = TableB.id;",
+    "output": "",
+    "tips": [
+      "Use Venn diagrams to explain mentally.",
+      "It is the default JOIN if you just write JOIN."
+    ],
+    "mistakes": [
+      "Confusing it with LEFT JOIN."
+    ],
+    "related": [
+      "Difference between LEFT and RIGHT JOIN",
+      "What is a FULL OUTER JOIN?"
+    ]
+  }
+]

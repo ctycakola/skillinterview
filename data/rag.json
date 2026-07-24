@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "RAG",
+    "topic": "Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is Retrieval-Augmented Generation (RAG)?",
+    "answer": "RAG is an AI framework that retrieves facts from an external knowledge base to ground large language models (LLMs) on accurate, up-to-date information.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention the two phases: Retrieval and Generation.",
+      "Discuss hallucination reduction."
+    ],
+    "mistakes": [
+      "Saying RAG trains the model."
+    ],
+    "related": [
+      "What is a Vector Database?",
+      "Embeddings explained"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "System Design",
+    "topic": "Scalability",
+    "difficulty": "Intermediate",
+    "question": "Vertical vs Horizontal Scaling?",
+    "answer": "Vertical scaling (scaling up) means adding more power (CPU, RAM) to an existing machine. Horizontal scaling (scaling out) means adding more machines to your pool of resources.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention single point of failure with vertical scaling.",
+      "Mention complexity of distributed systems with horizontal scaling."
+    ],
+    "mistakes": [
+      "Thinking one is strictly better than the other without context."
+    ],
+    "related": [
+      "What is a Load Balancer?",
+      "CAP Theorem"
+    ]
+  }
+]

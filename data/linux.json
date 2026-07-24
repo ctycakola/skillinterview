@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "category": "Linux",
+    "topic": "Commands",
+    "difficulty": "Beginner",
+    "question": "How do you list all files in a directory, including hidden ones?",
+    "answer": "Use the 'ls -la' command.",
+    "code": "ls -la",
+    "output": "drwxr-xr-x  1 user user  4096 ...",
+    "tips": [
+      "Explain the '-l' for long format and '-a' for all."
+    ],
+    "mistakes": [
+      "Forgetting the '-a' flag."
+    ],
+    "related": [
+      "How to check disk space?",
+      "What is chmod?"
+    ]
+  }
+]

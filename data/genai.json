@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "GenAI",
+    "topic": "LLMs",
+    "difficulty": "Beginner",
+    "question": "What does LLM stand for?",
+    "answer": "Large Language Model.",
+    "code": "",
+    "output": "",
+    "tips": [
+      "Mention transformers architecture.",
+      "Give examples like GPT-4 or Gemini."
+    ],
+    "mistakes": [
+      "Saying it's just a search engine."
+    ],
+    "related": [
+      "What are tokens?",
+      "What is Prompt Engineering?"
+    ]
+  }
+]

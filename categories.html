@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Browse technical interview questions by topic and difficulty."><meta name="theme-color" content="#2563eb">
+  <title>Interview Questions — SkillInterview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet"><link href="assets/css/responsive.css" rel="stylesheet">
+</head>
+<body data-page="categories">
+  <a class="skip-link" href="#main-content">Skip to content</a><header id="site-header"></header>
+  <div id="mobile-backdrop" class="mobile-backdrop" hidden></div>
+  <div class="app-shell"><aside id="sidebar" class="sidebar" aria-label="Categories"></aside>
+    <main id="main-content" class="main-content">
+      <section class="page-header">
+        <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Categories</li></ol></nav>
+        <div class="page-title-row"><div><span id="category-eyebrow" class="section-kicker">Question library</span><h1 id="category-title">Interview Questions</h1><p id="category-description">Loading curated questions…</p></div><div class="question-count"><strong id="visible-count">0</strong><span>questions</span></div></div>
+      </section>
+      <section class="question-toolbar" aria-label="Question filters">
+        <div class="toolbar-search"><i class="bi bi-search"></i><label class="visually-hidden" for="question-search">Search questions</label><input id="question-search" type="search" placeholder="Search questions, answers or topics…" autocomplete="off"><kbd>⌘ K</kbd></div>
+        <div id="difficulty-filters" class="filter-group" role="group" aria-label="Filter by difficulty">
+          <button class="filter-btn active" data-difficulty="All">All</button><button class="filter-btn" data-difficulty="Beginner">Beginner</button><button class="filter-btn" data-difficulty="Intermediate">Intermediate</button><button class="filter-btn" data-difficulty="Advanced">Advanced</button>
+        </div>
+      </section>
+      <div id="question-state" class="loading-state"><span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Loading questions…</div>
+      <section id="questions-list" class="questions-list" aria-live="polite"></section>
+    </main>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
+</body></html>
